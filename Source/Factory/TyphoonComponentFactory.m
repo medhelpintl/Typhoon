@@ -135,7 +135,8 @@ static TyphoonComponentFactory* defaultFactory;
         TyphoonDefinition* definition = [self definitionForKey:key];
         if (!definition)
         {
-            [NSException raise:NSInvalidArgumentException format:@"No component matching id '%@'.", key];
+            return nil;
+//            [NSException raise:NSInvalidArgumentException format:@"No component matching id '%@'.", key];
         }
         __autoreleasing id returnValue = [self objectForDefinition:definition];
         [_currentlyResolvingReferences removeAllObjects];
